@@ -2,13 +2,15 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import { AppLoading } from "expo"; //https://docs.expo.io/versions/latest/sdk/app-loading/
+import AppLoading from "expo-app-loading"; //https://docs.expo.io/versions/latest/sdk/app-loading/
 import {
   //https://www.youtube.com/watch?v=LBmsecuEXNQ
   useFonts,
   Tangerine_700Bold,
   Tangerine_400Regular,
 } from "@expo-google-fonts/tangerine";
+
+import Header from "./components/Header";
 
 export default function App() {
   // for loading the fonts correctly, will throw an error if they aren't loaded
@@ -21,6 +23,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Header />
       <View style={styles.homeContainer}>
         <View style={styles.titles}>
           <Text style={styles.titleText}> Welcome to Huntsville!</Text>
