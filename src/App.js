@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
+import HomescreenItem from "./components/HomescreenItem";
 
 import AppLoading from "expo-app-loading"; //https://docs.expo.io/versions/latest/sdk/app-loading/
 import {
@@ -24,11 +25,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-      <View style={styles.homeContainer}>
-        <View style={styles.titles}>
-          <Text style={styles.titleText}> Welcome to Huntsville!</Text>
-        </View>
-      </View>
+      <HomescreenItem />
 
       <StatusBar style="auto" />
     </View>
@@ -41,19 +38,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  homeContainer: {
-    width: "100%",
-    height: "100%", // this container will fill the whole screen
-  },
-  titles: {
-    marginTop: "70%",
-    width: "100%",
-    alignItems: "center",
-  },
-  titleText: {
-    fontFamily: "Tangerine_700Bold",
-    fontSize: 100,
-    fontWeight: "500",
   },
 });
