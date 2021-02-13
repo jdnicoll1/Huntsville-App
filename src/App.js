@@ -11,8 +11,6 @@ import {
   Tangerine_400Regular,
 } from "@expo-google-fonts/tangerine";
 
-import Header from "./components/Header";
-
 export default function App() {
   // for loading the fonts correctly, will throw an error if they aren't loaded
   let [fontsLoaded, error] = useFonts({
@@ -24,7 +22,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Header />
       <HomescreenItem />
 
       <StatusBar style="auto" />

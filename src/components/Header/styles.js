@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
   },
+  closeIcon: {},
 });
 
 export default styles;
