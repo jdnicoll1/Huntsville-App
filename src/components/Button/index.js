@@ -15,7 +15,7 @@ const Button = (props) => {
         // denotes the action of when a button is pressed
         style={({ pressed }) => [
           {
-            backgroundColor: pressed ? "black" : "white",
+            backgroundColor: pressed ? "#e6e6e6" : "white",
           },
           styles.button,
         ]}

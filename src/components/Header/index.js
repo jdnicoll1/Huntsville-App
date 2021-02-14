@@ -10,7 +10,10 @@ const Header = (props) => {
   return (
     <View style={styles.container}>
       <Pressable>
-        <Image style={styles.menu} source={onPress ? closeImage : menuImage} />
+        <Image
+          style={styles.menu}
+          source={onPress == true ? closeImage : menuImage} // fix this
+        />
       </Pressable>
     </View>
   );

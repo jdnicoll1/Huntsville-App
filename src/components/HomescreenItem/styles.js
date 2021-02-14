@@ -1,9 +1,9 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
   homeContainer: {
     width: "100%",
-    height: "100%", // this container will fill the whole screen
+    height: Dimensions.get("window").height, // this container will fill the whole screen
   },
   titles: {
     marginTop: "70%",
