@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, ImageBackground } from "react-native";
-import Button from "../Button";
+import Button from "../../Button";
 import styles from "./styles"; // "./" denotes this directory
-import Header from "../Header";
+import Header from "../../Header";
 
 import AppLoading from "expo-app-loading"; //https://docs.expo.io/versions/latest/sdk/app-loading/
 import {
@@ -24,7 +24,7 @@ const HomescreenItem = (props) => {
   return (
     <View style={styles.homeContainer}>
       {/* <ImageBackground // when background is decided
-        source={require("../../assets/images/wazowski_background.jpg")}
+        source={require("../../../assets/images/wazowski_background.jpg")}
         style={styles.image}
       /> */}
       <Header />

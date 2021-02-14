@@ -8,14 +8,17 @@ const Header = (props) => {
   const closeImage = require("../../assets/images/close_icon.png");
   // TODO, find a way to change menuImage to closeImage when pressed
   return (
-    <View style={styles.container}>
-      <Pressable>
-        <Image
-          style={styles.menu}
-          source={onPress == true ? closeImage : menuImage} // fix this
-        />
-      </Pressable>
-    </View>
+    <Pressable>
+      {({ pressed }) => (
+        <View style={styles.container}>
+          {pressed ? (
+            <Image style={styles.menu} source={closeImage} />
+          ) : (
+            <Image style={styles.closeIcon} source={menuImage} />
+          )}
+        </View>
+      )}
+    </Pressable>
   );
 };
 
