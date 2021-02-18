@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   homeContainer: {
     width: "100%",
     height: Dimensions.get("window").height, // this container will fill the whole screen
+    backgroundColor: "#FFF",
   },
   titles: {
     marginTop: "70%",

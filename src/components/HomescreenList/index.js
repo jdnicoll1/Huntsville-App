@@ -4,6 +4,7 @@ import HomescreenItem from "./HomescreenItem";
 
 import styles from "./styles";
 
+//This is the HomeScreen Component
 const HomescreenList = (props) => {
   return (
     // order of items in scrollView will determine what order they show up on the screen
