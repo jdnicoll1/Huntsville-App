@@ -27,11 +27,9 @@ const HomescreenItem = (props) => {
         source={require("../../../assets/images/wazowski_background.jpg")}
         style={styles.image}
       /> */}
-      <Header {...props} />
       <View style={styles.titles}>
         <Text style={styles.titleText}> Welcome to Huntsville!</Text>
       </View>
-
       <Button {...props} />
     </View>
   );

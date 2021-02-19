@@ -16,6 +16,7 @@ import styles from "./styles";
 export default function HomescreenList(props) {
   return (
     // order of items in scrollView will determine what order they show up on the screen
+
     <ScrollView
       style={styles.scrollView}
       snapToAlignment={"start"} // following 3 lines are for snapping screen to center of view
@@ -24,13 +25,6 @@ export default function HomescreenList(props) {
       showsVerticalScrollIndicator={false}
     >
       <HomescreenItem {...props} />
-      {/* <Button // this button will work with toggling the drawer
-        position="absolute"
-        justifyContent="center"
-        alignItems="center"
-        title="Toggle Temp"
-        onPress={() => navigation.toggleDrawer()}
-      /> */}
       <HomescreenItem {...props} />
     </ScrollView>
   );

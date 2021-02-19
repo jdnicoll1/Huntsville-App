@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView } from "react-native";
 import HomescreenList from "./components/HomescreenList";
 // import { createStackNavigator } from "react-navigation-stack";
 // import { createAppContainer, createDrawerNavigator } from "react-navigation";
@@ -15,10 +15,12 @@ import {
 import HomeExample from "./components/HomeExample";
 import AnnouncementScreen from "./components/AnnouncementScreen";
 import ContactScreen from "./components/ContactScreen";
+import Header from "./components/HomescreenList/Header";
 
 export default function App() {
   return (
     <NavigationContainer>
+      <Header />
       <MyDrawer />
     </NavigationContainer>
   );

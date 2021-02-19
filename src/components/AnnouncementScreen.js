@@ -5,6 +5,7 @@ export default function AnnouncementScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Announcement Screen</Text>
+      <Button title="Toggle Menu" onPress={() => navigation.toggleDrawer()} />
     </View>
   );
 }
