@@ -1,15 +1,16 @@
 import React from "react";
 import { View, Image, Pressable, onPress } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
 import styles from "./styles";
 
-const Header = (props) => {
+export default function Header(props) {
   const menuImage = require("../../../assets/images/menu.png");
   const closeImage = require("../../../assets/images/close_icon.png");
   // TODO, find a way to change menuImage to closeImage when pressed
 
   return (
-    <Pressable>
+    <Pressable onPress={() => props.navigation.toggleDrawer()}>
       {({ pressed }) => (
         <View style={styles.container}>
           {pressed ? (
@@ -21,6 +22,4 @@ const Header = (props) => {
       )}
     </Pressable>
   );
-};
-
-export default Header;
+}

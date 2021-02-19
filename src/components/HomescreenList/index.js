@@ -1,11 +1,19 @@
 import React from "react";
-import { View, Text, FlatList, ScrollView, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  ScrollView,
+  Dimensions,
+  Button,
+} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import HomescreenItem from "./HomescreenItem";
 
 import styles from "./styles";
 
 //This is the HomeScreen Component
-const HomescreenList = (props) => {
+export default function HomescreenList(props) {
   return (
     // order of items in scrollView will determine what order they show up on the screen
     <ScrollView
@@ -15,10 +23,15 @@ const HomescreenList = (props) => {
       snapToInterval={Dimensions.get("window").height}
       showsVerticalScrollIndicator={false}
     >
-      <HomescreenItem />
-      <HomescreenItem />
+      <HomescreenItem {...props} />
+      {/* <Button // this button will work with toggling the drawer
+        position="absolute"
+        justifyContent="center"
+        alignItems="center"
+        title="Toggle Temp"
+        onPress={() => navigation.toggleDrawer()}
+      /> */}
+      <HomescreenItem {...props} />
     </ScrollView>
   );
-};
-
-export default HomescreenList;
+}
