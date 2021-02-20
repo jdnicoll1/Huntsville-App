@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     height: "10%",
     paddingHorizontal: 25,
     paddingTop: 10,
+    // borderWidth: 1,
   },
   menu: {
     width: 28,

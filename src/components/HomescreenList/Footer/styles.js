@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignSelf: "center",
     height: "5%",
+    // borderWidth: 1,
     // paddingHorizontal: 25,
     // paddingBottom: 10,
   },

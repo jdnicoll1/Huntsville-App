@@ -13,7 +13,7 @@ export default function Button(props) {
   return (
     <View style={styles.container}>
       <Pressable
-        onPress={() => props.navigation.toggleDrawer()}
+        // onPress={() => props.navigation.toggleDrawer()}
         // denotes the action of when a button is pressed
         style={({ pressed }) => [
           {
