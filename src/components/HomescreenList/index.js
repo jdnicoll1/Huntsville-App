@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import HomescreenItem from "./HomescreenItem";
+import HomescreenItem2 from "./HomescreenItem2";
 
 import styles from "./styles";
 
@@ -25,7 +26,7 @@ export default function HomescreenList(props) {
       showsVerticalScrollIndicator={false}
     >
       <HomescreenItem {...props} />
-      <HomescreenItem {...props} />
+      <HomescreenItem2 {...props} />
     </ScrollView>
   );
 }
