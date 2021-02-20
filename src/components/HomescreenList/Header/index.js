@@ -13,13 +13,15 @@ export default function Header() {
   // const navigation = useNavigation(); // tp get navigation
 
   return (
-    <Pressable style={styles.container}>
-      <Image
-        style={styles.menu}
-        source={menuImage}
-        // onPress={() => navigation.toggleDrawer()}
-      />
-    </Pressable>
+    <View style={styles.container}>
+      <Pressable>
+        <Image
+          style={styles.menu}
+          source={menuImage}
+          // onPress={() => navigation.toggleDrawer()}
+        />
+      </Pressable>
+    </View>
   );
 }
 
