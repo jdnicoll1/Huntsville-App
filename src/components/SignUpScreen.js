@@ -8,6 +8,7 @@ import {
   Pressable,
   TouchableOpacity,
   StatusBar,
+  Image,
 } from "react-native";
 
 // next two imports for email and password icons
@@ -16,6 +17,7 @@ import Feather from "react-native-vector-icons/Feather";
 import * as Animatable from "react-native-animatable";
 
 export default function LoginScreen({ navigation }) {
+  const BackArrow = require("../assets/images/back_arrow.png");
   return (
     <View style={styles.container}>
       <ImageBackground // when background is decided
@@ -24,7 +26,7 @@ export default function LoginScreen({ navigation }) {
       />
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
-        <Text style={styles.text_header}>Log In</Text>
+        <Text style={styles.text_header}>Sign Up</Text>
       </View>
 
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
@@ -57,6 +59,23 @@ export default function LoginScreen({ navigation }) {
           />
           {/* <Feather name="eye-off" color="grey" size={20} /> */}
         </View>
+        <Text style={[styles.text_footer, { marginTop: 35 }]}>
+          Confirm Password
+        </Text>
+        <View style={styles.action}>
+          <FontAwesome // email icon and text field
+            name="lock"
+            color="#05375a"
+            size={20}
+          />
+          <TextInput
+            placeholder="Confirm Password"
+            secureTextEntry={true}
+            style={styles.textInput}
+            autoCapitalize="none"
+          />
+          {/* <Feather name="eye-off" color="grey" size={20} /> */}
+        </View>
         <View style={styles.button}>
           <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
@@ -70,10 +89,10 @@ export default function LoginScreen({ navigation }) {
               },
             ]}
           >
-            <Text style={[styles.textSign, { color: "#fff" }]}>Log In</Text>
+            <Text style={[styles.textSign, { color: "#fff" }]}>Sign Up</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Sign Up")}
+            onPress={() => navigation.navigate("Log In")}
             style={[
               styles.signIn,
               {
@@ -83,7 +102,7 @@ export default function LoginScreen({ navigation }) {
               },
             ]}
           >
-            <Text style={[styles.textSign, { color: "#05375a" }]}>Sign Up</Text>
+            <Image style={styles.icon} source={BackArrow} />
           </TouchableOpacity>
         </View>
       </Animatable.View>
@@ -105,7 +124,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   footer: {
-    flex: 4.5,
+    flex: 4,
     backgroundColor: "#fff",
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
@@ -165,5 +184,10 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "cover",
     position: "absolute", // so text won't be pushed underneath
+  },
+  icon: {
+    width: 45,
+    height: 45,
+    resizeMode: "contain",
   },
 });

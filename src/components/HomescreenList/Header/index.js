@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Image, Pressable, onPress } from "react-native";
+import {
+  View,
+  Image,
+  Pressable,
+  onPress,
+  TouchableOpacity,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -14,9 +20,9 @@ export default function Header(props) {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => props.navigation.toggleDrawer()}>
+      <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
         <Image style={styles.menu} source={menuImage} />
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 }

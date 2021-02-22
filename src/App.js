@@ -13,6 +13,7 @@ import AnnouncementScreen from "./components/AnnouncementScreen";
 import RequestScreen from "./components/RequestScreen";
 import Homescreen from "./components/Homescreen";
 import LoginScreen from "./components/LoginScreen";
+import SignUpScreen from "./components/SignUpScreen";
 
 export default function App() {
   StatusBar.setBarStyle("dark-content", true); // sets the time and carrier on iphone to black so it shows against the white background
@@ -46,6 +47,8 @@ function MyDrawer() {
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
+      <Drawer.Screen name="Log In" component={LoginScreen} />
+      <Drawer.Screen name="Sign Up" component={SignUpScreen} />
       <Drawer.Screen name="Home" component={Homescreen} />
       <Drawer.Screen name="Announcements" component={AnnouncementScreen} />
       <Drawer.Screen name="Requests" component={RequestScreen} />
