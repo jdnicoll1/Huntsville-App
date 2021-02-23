@@ -2,23 +2,31 @@
 import React from "react";
 import { StyleSheet, View, Text, SafeAreaView, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import "react-native-gesture-handler";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
+
 // example drawer imports
 import AnnouncementScreen from "./components/AnnouncementScreen";
 import RequestScreen from "./components/RequestScreen";
 import Homescreen from "./components/Homescreen";
 import LoginScreen from "./components/LoginScreen";
 import SignUpScreen from "./components/SignUpScreen";
+import GettingStarted from "./components/GettingStarted";
+import { StackRouter } from "react-navigation";
 
 export default function App() {
-  StatusBar.setBarStyle("dark-content", true); // sets the time and carrier on iphone to black so it shows against the white background
   return (
     <NavigationContainer>
+      {/* <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+      </Stack.Navigator> */}
       <MyDrawer />
     </NavigationContainer>
   );
@@ -47,12 +55,13 @@ function MyDrawer() {
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
+      <Drawer.Screen name="Getting Started" component={GettingStarted} />
       <Drawer.Screen name="Log In" component={LoginScreen} />
       <Drawer.Screen name="Sign Up" component={SignUpScreen} />
       <Drawer.Screen name="Home" component={Homescreen} />
       <Drawer.Screen name="Announcements" component={AnnouncementScreen} />
       <Drawer.Screen name="Requests" component={RequestScreen} />
-      <Drawer.Screen name="Sign Out" component={LoginScreen} />
+      <Drawer.Screen name="Sign Out" component={GettingStarted} />
     </Drawer.Navigator>
   );
 }

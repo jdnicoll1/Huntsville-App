@@ -21,7 +21,7 @@ export default function LoginScreen({ navigation }) {
   const BackArrow = require("../assets/images/back_arrow.png");
   return (
     <View style={styles.container}>
-      <Video
+      {/* <Video
         rate={1}
         shouldPlay
         isLooping
@@ -29,11 +29,11 @@ export default function LoginScreen({ navigation }) {
         source={require("../assets/videos/city_background_trim.mp4")}
         style={styles.video}
         resizeMode="cover"
-      />
-      {/* <ImageBackground // when background is decided
+      /> */}
+      <ImageBackground // when background is decided
         source={require("../assets/images/homescreen_background.png")}
         style={styles.image}
-      /> */}
+      />
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.text_header}>Sign Up</Text>

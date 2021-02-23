@@ -6,6 +6,7 @@ import {
   ScrollView,
   Dimensions,
   Button,
+  StatusBar,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import HomescreenItem from "./HomescreenItem";
@@ -15,6 +16,7 @@ import styles from "./styles";
 
 //This is the HomeScreen Component
 export default function HomescreenList(props) {
+  StatusBar.setBarStyle("dark-content", true); // sets the time and carrier on iphone to black so it shows against the white background
   return (
     // order of items in scrollView will determine what order they show up on the screen
 
