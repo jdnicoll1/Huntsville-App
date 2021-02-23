@@ -24,7 +24,7 @@ export default function LoginScreen({ navigation }) {
         shouldPlay
         isLooping
         muted={true}
-        source={require("../assets/videos/city_background.mp4")}
+        source={require("../assets/videos/city_background_trim.mp4")}
         style={styles.video}
         resizeMode="cover"
       />
