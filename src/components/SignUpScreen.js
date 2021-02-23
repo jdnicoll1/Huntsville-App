@@ -15,15 +15,25 @@ import {
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 import * as Animatable from "react-native-animatable";
+import { Video, AVPlaybackStatus } from "expo-av";
 
 export default function LoginScreen({ navigation }) {
   const BackArrow = require("../assets/images/back_arrow.png");
   return (
     <View style={styles.container}>
-      <ImageBackground // when background is decided
+      <Video
+        rate={1}
+        shouldPlay
+        isLooping
+        muted={true}
+        source={require("../assets/videos/city_background.mp4")}
+        style={styles.video}
+        resizeMode="cover"
+      />
+      {/* <ImageBackground // when background is decided
         source={require("../assets/images/homescreen_background.png")}
         style={styles.image}
-      />
+      /> */}
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.text_header}>Sign Up</Text>
@@ -189,5 +199,12 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     resizeMode: "contain",
+  },
+  video: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
 });

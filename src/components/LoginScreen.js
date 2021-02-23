@@ -8,20 +8,31 @@ import {
   Pressable,
   TouchableOpacity,
   StatusBar,
+  Dimensions,
 } from "react-native";
-
 // next two imports for email and password icons
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 import * as Animatable from "react-native-animatable";
+import { Video, AVPlaybackStatus } from "expo-av";
 
 export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <ImageBackground // when background is decided
+      <Video
+        rate={1}
+        shouldPlay
+        isLooping
+        muted={true}
+        source={require("../assets/videos/city_background.mp4")}
+        style={styles.video}
+        resizeMode="cover"
+      />
+
+      {/* <ImageBackground // when background is decided
         source={require("../assets/images/homescreen_background.png")}
         style={styles.image}
-      />
+      /> */}
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.text_header}>Log In</Text>
@@ -165,5 +176,12 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "cover",
     position: "absolute", // so text won't be pushed underneath
+  },
+  video: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
 });
