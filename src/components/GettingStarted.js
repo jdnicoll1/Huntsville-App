@@ -25,9 +25,9 @@ export default function GettingStarted({ navigation }) {
           source={require("../assets/images/homescreen_background.png")}
           style={styles.image}
         />
-        <Text>Background Image or Video of Huntsville</Text>
+        {/* <Text>Background Image or Video of Huntsville</Text>
         <Text>Might be cool to get some drone footage above</Text>
-        <Text>Sam Houston University or the city</Text>
+        <Text>Sam Houston University or the city</Text> */}
       </View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.title}>Welcome to Huntsville!</Text>
