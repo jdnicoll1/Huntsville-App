@@ -38,17 +38,24 @@ class SignUpScreen extends Component {
     }
 
     storeUser() {
-        if (this.state.name === '') {
-            alert('Fill at least your name!')
+        if (this.state.email === '') {
+            alert('Please add an email')
         }
-        if (this.state.password != this.state.confirmpassword) {
-            alert('passwords do not match')
+        else if (this.state.password == '') {
+            alert('Please enter a password')
+        }
+        else if (this.state.password != this.state.confirmpassword) {
+            alert('Passwords do not match')
         }
         else {
-            alert('created account')
+            //alert('created account')
             this.setState({
                 isLoading: true,
             });
+            firebase.auth().createUserWithEmailAndPassword(
+                this.state.email,
+                this.state.password
+            )
             this.dbRef.add({
                 email: this.state.email,
                 password: this.state.password,
