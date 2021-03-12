@@ -18,6 +18,7 @@ import Feather from "react-native-vector-icons/Feather";
 import * as Animatable from "react-native-animatable";
 import { Video, AVPlaybackStatus } from "expo-av";
 
+
 import firebase from '../database/firebaseDb';
 
 class SignUpScreen extends Component {
