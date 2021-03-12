@@ -8,8 +8,8 @@ import {
   Pressable,
   TouchableOpacity,
   StatusBar,
-    Dimensions,
-    ActivityIndicator,
+  Dimensions,
+  ActivityIndicator,
 } from "react-native";
 // next two imports for email and password icons
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -36,43 +36,38 @@ class LoginScreen extends Component {
         this.setState(state);
     }
 
-    storeUser() {
+    signInUser() {
         if (this.state.email === '') {
-            alert('Please add an email')
+            alert('Please enter an email')
         }
         else if (this.state.password == '') {
             alert('Please enter a password')
         }
-        else if (this.state.password != this.state.confirmpassword) {
-            alert('Passwords do not match')
-        }
         else {
             //alert('created account')
-            this.setState({
-                isLoading: true,
-            });
-            firebase.auth().signInWithEmailAndPassword(
-                this.state.email,
-                this.state.password
-            )
-            this.dbRef.add({
-                email: this.state.email,
-                password: this.state.password,
-            }).then((res) => {
-                this.setState({
-                    email: '',
-                    password: '',
-                    confirmpassword: '',
-                    isLoading: false,
-                });
-                this.props.navigation.navigate("Home")
-            })
-                .catch((err) => {
+            if (!firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)) {
+                alert('Incorrect email or password')
+            }
+            else {
+                firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((res) => {
+                    this.setState({
+                        isLoading: true,
+                    })
+                    this.setState({
+                        email: '',
+                        password: '',
+                        confirmpassword: '',
+                        isLoading: false,
+                    });
+                    this.props.navigation.navigate("Home")
+                }).catch((err) => {
                     console.error("Error found: ", err);
                     this.setState({
                         isLoading: false,
                     });
                 });
+            }
+            
         }
     }
     render() {
@@ -117,6 +112,8 @@ class LoginScreen extends Component {
                         <TextInput
                             placeholder="E-mail"
                             style={styles.textInput}
+                            value={this.state.email}
+                            onChangeText={(val) => this.inputValueUpdate(val, 'email')}
                             autoCapitalize="none"
                         />
                         {/* <Feather name="check-circle" color="green" size={20} /> */}
@@ -132,13 +129,15 @@ class LoginScreen extends Component {
                             placeholder="Password"
                             secureTextEntry={true}
                             style={styles.textInput}
+                            value={this.state.password}
+                            onChangeText={(val) => this.inputValueUpdate(val, 'password')}
                             autoCapitalize="none"
                         />
                         {/* <Feather name="eye-off" color="grey" size={20} /> */}
                     </View>
                     <View style={styles.button}>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate("Home")}
+                            onPress={() => this.signInUser()}
                             style={[
                                 styles.signIn,
                                 {
@@ -152,7 +151,7 @@ class LoginScreen extends Component {
                             <Text style={[styles.textSign, { color: "#fff" }]}>Log In</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate("Sign Up")}
+                            onPress={() => this.props.navigation.navigate("Sign Up")}
                             style={[
                                 styles.signIn,
                                 {
