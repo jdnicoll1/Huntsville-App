@@ -18,6 +18,9 @@ import Homescreen from "./components/Homescreen";
 import LoginScreen from "./components/LoginScreen";
 import SignUpScreen from "./components/SignUpScreen";
 import GettingStarted from "./components/GettingStarted";
+import ListingsScreen from "./components/ListingsScreen";
+import RequestNavigator from "./navigation/RequestNavigator";
+
 import { StackRouter } from "react-navigation";
 
 export default function App() {
@@ -60,7 +63,8 @@ function MyDrawer() {
       <Drawer.Screen name="Sign Up" component={SignUpScreen} />
       <Drawer.Screen name="Home" component={Homescreen} />
       <Drawer.Screen name="Announcements" component={AnnouncementScreen} />
-      <Drawer.Screen name="Requests" component={RequestScreen} />
+      <Drawer.Screen name="Submit Request" component={RequestScreen} />
+      <Drawer.Screen name="All Requests" component={RequestNavigator} />
       <Drawer.Screen name="Sign Out" component={GettingStarted} />
     </Drawer.Navigator>
   );

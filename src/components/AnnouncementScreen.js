@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   StatusBar,
   FlatList,
@@ -53,6 +53,7 @@ const AVATAR_SIZE = 70;
 // end fake data
 
 export default function AnnouncementScreen(props) {
+  const [refreshing, setRefreshing] = useState(false);
   StatusBar.setBarStyle("dark-content", true); // sets the time and carrier on iphone to black so it shows against the white background
   return (
     <View style={{ flex: 1, backgroundColor: "#fff", paddingTop: "15%" }}>
@@ -107,6 +108,8 @@ export default function AnnouncementScreen(props) {
             </View>
           );
         }}
+        refreshing={refreshing}
+        // onRefresh={() => {setMessages}} // here is where we will put the updated info from the backend
       />
     </View>
   );
