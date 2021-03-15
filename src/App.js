@@ -1,7 +1,7 @@
 // import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, View, Text, SafeAreaView, StatusBar } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 import {
@@ -22,6 +22,7 @@ import ListingsScreen from "./components/ListingsScreen";
 import RequestNavigator from "./navigation/RequestNavigator";
 
 import { StackRouter } from "react-navigation";
+import AuthNavigator from "./navigation/AuthNavigator";
 
 export default function App() {
   return (

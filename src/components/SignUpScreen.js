@@ -95,10 +95,10 @@ class SignUpScreen extends Component {
         style={styles.video}
         resizeMode="cover"
       /> */}
-        <ImageBackground // when background is decided
+        {/* <ImageBackground // when background is decided
           source={require("../assets/images/home_background.jpg")}
           style={styles.image}
-        />
+        /> */}
         <StatusBar barStyle="light-content" />
         <View style={styles.header}>
           <Text style={styles.text_header}>Sign Up</Text>
@@ -199,13 +199,14 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#009387",
+    backgroundColor: "#05375a",
   },
   header: {
     flex: 1,
     justifyContent: "flex-end",
     paddingHorizontal: 20,
     paddingBottom: 50,
+    backgroundColor: "#05375a",
   },
   footer: {
     flex: 4,

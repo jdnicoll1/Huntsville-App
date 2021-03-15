@@ -16,15 +16,12 @@ import { useTheme } from "@react-navigation/native";
 export default function GettingStarted({ navigation }) {
   return (
     <View style={styles.container}>
-      <ImageBackground // when background is decided
-        source={require("../assets/images/home_background.jpg")}
-        style={styles.image}
-      />
+      <StatusBar barStyle="light-content" />
       <View style={styles.header}>
-        <ImageBackground // when background is decided
+        {/* <ImageBackground // when background is decided
           source={require("../assets/images/home_background.jpg")}
           style={styles.image}
-        />
+        /> */}
       </View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.title}>Welcome to Huntsville!</Text>
@@ -57,11 +54,13 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
   container: {
     flex: 5,
+    backgroundColor: "#05375a",
   },
   header: {
     flex: 4.5,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#05375a",
   },
   footer: {
     flex: 1,

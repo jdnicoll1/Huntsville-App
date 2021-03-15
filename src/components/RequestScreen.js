@@ -84,13 +84,6 @@ function RequestScreen() {
         validationSchema={validationSchema}
       >
         <FormField maxLength={255} name="title" placeholder="Title" />
-        <FormField
-          keyboardType="numeric"
-          maxLength={8}
-          name="price"
-          placeholder="Price"
-          width={120}
-        />
         <Picker
           items={categories}
           name="category"

@@ -96,10 +96,10 @@ class LoginScreen extends Component {
         resizeMode="cover"
       /> */}
 
-        <ImageBackground // when background is decided
+        {/* <ImageBackground // when background is decided
           source={require("../assets/images/home_background.jpg")}
           style={styles.image}
-        />
+        /> */}
         <StatusBar barStyle="light-content" />
         <View style={styles.header}>
           <Text style={styles.text_header}>Log In</Text>
@@ -181,16 +181,17 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#009387",
+    backgroundColor: "#05375a",
   },
   header: {
     flex: 1,
     justifyContent: "flex-end",
     paddingHorizontal: 20,
     paddingBottom: 50,
+    backgroundColor: "#05375a",
   },
   footer: {
-    flex: 4.5,
+    flex: 4,
     backgroundColor: "#fff",
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
