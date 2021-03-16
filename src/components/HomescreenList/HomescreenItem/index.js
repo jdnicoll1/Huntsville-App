@@ -39,7 +39,7 @@ const HomescreenItem = (props) => {
       <View style={styles.titles}>
         <Text style={styles.titleText}> Welcome to Huntsville!</Text>
       </View>
-      <Button {...props} />
+      {/* <Button {...props} /> */}
       <Footer />
     </View>
   );

@@ -38,7 +38,7 @@ const HomescreenItem2 = (props) => {
       /> */}
       <View style={styles.titles}>
         <Text>Screen 2</Text>
-        <Text>History of Huntsville maybe?</Text>
+        <Text>History of Huntsville?</Text>
       </View>
     </View>
   );
