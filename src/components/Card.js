@@ -5,18 +5,20 @@ import Text from "./Text";
 import colors from "./config/colors";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-function Card({ title, subTitle, image, onPress }) {
+function Card({ title, description, image, onPress }) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <View style={styles.card}>
-        <Image style={styles.image} source={image} />
-        <View style={styles.detailsContainer}>
-          <Text style={styles.title} numberOfLines={1}>
-            {title}
-          </Text>
-          <Text style={styles.subTitle} numberOfLines={2}>
-            {subTitle}
-          </Text>
+      <View style={styles.container}>
+        <View style={styles.card}>
+          <Image style={styles.image} source={image} />
+          <View style={styles.detailsContainer}>
+            <Text style={styles.title} numberOfLines={1}>
+              {title}
+            </Text>
+            <Text style={styles.description} numberOfLines={2}>
+              {description}
+            </Text>
+          </View>
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -24,6 +26,19 @@ function Card({ title, subTitle, image, onPress }) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    borderRadius: 12,
+    marginBottom: 20,
+    backgroundColor: "transparent",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
   card: {
     borderRadius: 15,
     backgroundColor: colors.white,
@@ -31,18 +46,20 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   detailsContainer: {
-    padding: 20,
+    padding: 15,
   },
   image: {
     width: "100%",
-    height: 200,
+    height: 170,
   },
-  subTitle: {
-    color: colors.secondary,
-    fontWeight: "bold",
+  description: {
+    color: "grey",
+    fontSize: 15,
   },
   title: {
-    marginBottom: 7,
+    marginBottom: 5,
+    fontWeight: "bold",
+    fontSize: 20,
   },
 });
 

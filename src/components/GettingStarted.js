@@ -28,7 +28,7 @@ export default function GettingStarted({ navigation }) {
         <Text style={styles.text}>Sign In With Account</Text>
         <View style={styles.button}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Log In")}
+            onPress={() => navigation.navigate("Login Screen")}
             style={[
               styles.signIn,
               {

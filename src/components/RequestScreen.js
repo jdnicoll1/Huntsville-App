@@ -1,79 +1,34 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import * as Yup from "yup";
 
 import { Form, FormField, FormPicker as Picker, SubmitButton } from "./forms";
 import CategoryPickerItem from "./CategoryPickerItem";
 import Screen from "./Screen";
 import FormImagePicker from "./forms/FormImagePicker";
+import Header from "./Header";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
-  price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),
-  category: Yup.object().required().nullable().label("Category"),
 });
 
-const categories = [
-  {
-    backgroundColor: "#fc5c65",
-    icon: "floor-lamp",
-    label: "Furniture",
-    value: 1,
-  },
-  {
-    backgroundColor: "#fd9644",
-    icon: "car",
-    label: "Cars",
-    value: 2,
-  },
-  {
-    backgroundColor: "#fed330",
-    icon: "camera",
-    label: "Cameras",
-    value: 3,
-  },
-  {
-    backgroundColor: "#26de81",
-    icon: "cards",
-    label: "Games",
-    value: 4,
-  },
-  {
-    backgroundColor: "#2bcbba",
-    icon: "shoe-heel",
-    label: "Clothing",
-    value: 5,
-  },
-  {
-    backgroundColor: "#45aaf2",
-    icon: "basketball",
-    label: "Sports",
-    value: 6,
-  },
-  {
-    backgroundColor: "#4b7bec",
-    icon: "headphones",
-    label: "Movies & Music",
-    value: 7,
-  },
-  {
-    backgroundColor: "#a55eea",
-    icon: "book-open-variant",
-    label: "Books",
-    value: 8,
-  },
-  {
-    backgroundColor: "#778ca3",
-    icon: "application",
-    label: "Other",
-    value: 9,
-  },
-];
-
-function RequestScreen() {
+function RequestScreen(props) {
   return (
     <Screen style={styles.container}>
+      <Header {...props} />
+      <Text
+        style={{
+          textAlign: "center",
+          fontSize: 25,
+          opacity: 0.8,
+          paddingBottom: "3%",
+          paddingTop: "1.7%",
+        }}
+      >
+        Request Submission
+      </Text>
+
       <Form
         initialValues={{
           title: "",
@@ -85,13 +40,17 @@ function RequestScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <FormField maxLength={255} name="title" placeholder="Title" />
+        <FormField
+          maxLength={255}
+          name="title"
+          placeholder="Give us an overview of your concern"
+        />
         <FormField
           maxLength={255}
           multiline
           name="description"
           numberOfLines={3}
-          placeholder="Description"
+          placeholder="Provide a detailed description"
         />
         <FormImagePicker name="images" />
         <SubmitButton title="Submit Request" />

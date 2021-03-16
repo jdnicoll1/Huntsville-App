@@ -155,7 +155,7 @@ class LoginScreen extends Component {
               <Text style={[styles.textSign, { color: "#fff" }]}>Log In</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("Sign Up")}
+              onPress={() => this.props.navigation.navigate("Sign Up Screen")}
               style={[
                 styles.signIn,
                 {

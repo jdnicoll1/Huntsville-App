@@ -12,14 +12,8 @@ function ListingDetailsScreen({ route }) {
       <Image style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{listing.title}</Text>
-        <Text style={styles.price}>{listing.price}</Text>
-        <View style={styles.userContainer}>
-          <ListItem
-            //image={require("../assets/mosh.jpg")}
-            //title="Mosh Hamedani"
-            subTitle="5 Listings"
-          />
-        </View>
+        <Text style={styles.description}>{listing.description}</Text>
+        <View style={styles.userContainer}></View>
       </View>
     </View>
   );
@@ -42,6 +36,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "500",
+  },
+  description: {
+    fontSize: 15,
+    fontWeight: "500",
+    color: "grey",
   },
   userContainer: {
     marginVertical: 40,

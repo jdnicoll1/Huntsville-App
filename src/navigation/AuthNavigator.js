@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator mode="modal" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Getting Started" component={GettingStarted} />
       <Stack.Screen name="Login Screen" component={LoginScreen} />
       <Stack.Screen name="Sign Up Screen" component={SignUpScreen} />

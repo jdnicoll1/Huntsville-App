@@ -65,10 +65,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.light,
     borderRadius: 15,
-    height: 100,
+    height: 170,
     justifyContent: "center",
     overflow: "hidden",
-    width: 100,
+    width: 120,
   },
   image: {
     height: "100%",
