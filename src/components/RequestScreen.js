@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Form, FormField, FormPicker as Picker, SubmitButton } from "./forms";
 import CategoryPickerItem from "./CategoryPickerItem";
 import Screen from "./Screen";
+import FormImagePicker from "./forms/FormImagePicker";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -79,19 +80,12 @@ function RequestScreen() {
           price: "",
           description: "",
           category: null,
+          images: null,
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
         <FormField maxLength={255} name="title" placeholder="Title" />
-        <Picker
-          items={categories}
-          name="category"
-          numberOfColumns={3}
-          PickerItemComponent={CategoryPickerItem}
-          placeholder="Category"
-          width="50%"
-        />
         <FormField
           maxLength={255}
           multiline
@@ -99,7 +93,8 @@ function RequestScreen() {
           numberOfLines={3}
           placeholder="Description"
         />
-        <SubmitButton title="Post" />
+        <FormImagePicker name="images" />
+        <SubmitButton title="Submit Request" />
       </Form>
     </Screen>
   );
@@ -108,6 +103,7 @@ function RequestScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    backgroundColor: "white",
   },
 });
 

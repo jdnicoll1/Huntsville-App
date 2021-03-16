@@ -1,6 +1,13 @@
 // import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, View, Text, SafeAreaView, StatusBar } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  StatusBar,
+  Image,
+} from "react-native";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
@@ -24,15 +31,37 @@ import RequestNavigator from "./navigation/RequestNavigator";
 import { StackRouter } from "react-navigation";
 import AuthNavigator from "./navigation/AuthNavigator";
 
+import Screen from "./components/Screen";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
+import Button from "./components/Button";
+import ImageInput from "./components/ImageInput";
+
 export default function App() {
+  const [imageUri, setImageUri] = useState();
+
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!granted) alert("Enable access in settings to select photos");
+  };
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync();
+      if (!result.cancelled) setImageUri(result.uri);
+    } catch (error) {
+      console.log("Could not read image");
+    }
+  };
+
   return (
     <NavigationContainer>
-      {/* <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-      </Stack.Navigator> */}
       <MyDrawer />
     </NavigationContainer>
+    // just using screen for example
   );
 }
 

@@ -18,6 +18,8 @@
     "expo": "~40.0.0",
     "expo-app-loading": "^1.0.1",
     "expo-av": "~8.7.0",
+    "expo-image-picker": "^10.0.0",
+    "expo-permissions": "^11.0.0",
     "expo-status-bar": "~1.0.3",
     "faker": "^5.4.0",
     "firebase": "^8.2.9",
