@@ -17,12 +17,12 @@ export default function GettingStarted({ navigation }) {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <View style={styles.header}>
-        {/* <ImageBackground // when background is decided
-          source={require("../assets/images/home_background.jpg")}
+      <Animatable.View style={styles.header} animation="fadeIn">
+        <Image
           style={styles.image}
-        /> */}
-      </View>
+          source={require("../assets/images/huntsville_logo.png")}
+        />
+      </Animatable.View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.title}>Welcome to Huntsville!</Text>
         <Text style={styles.text}>Sign In With Account</Text>
@@ -100,9 +100,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   image: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
+    width: "83%",
+    height: "54%",
     position: "absolute", // so text won't be pushed underneath
   },
 });
