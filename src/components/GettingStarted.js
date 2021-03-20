@@ -16,25 +16,19 @@ import { useTheme } from "@react-navigation/native";
 export default function GettingStarted({ navigation }) {
   return (
     <View style={styles.container}>
-      <ImageBackground // when background is decided
-        source={require("../assets/images/homescreen_background.png")}
-        style={styles.image}
-      />
-      <View style={styles.header}>
-        <ImageBackground // when background is decided
-          source={require("../assets/images/homescreen_background.png")}
+      <StatusBar barStyle="light-content" />
+      <Animatable.View style={styles.header} animation="fadeIn">
+        <Image
           style={styles.image}
+          source={require("../assets/images/huntsville_logo.png")}
         />
-        {/* <Text>Background Image or Video of Huntsville</Text>
-        <Text>Might be cool to get some drone footage above</Text>
-        <Text>Sam Houston University or the city</Text> */}
-      </View>
+      </Animatable.View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.title}>Welcome to Huntsville!</Text>
         <Text style={styles.text}>Sign In With Account</Text>
         <View style={styles.button}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Log In")}
+            onPress={() => navigation.navigate("Login Screen")}
             style={[
               styles.signIn,
               {
@@ -60,11 +54,13 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
   container: {
     flex: 5,
+    backgroundColor: "#05375a",
   },
   header: {
     flex: 4.5,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#05375a",
   },
   footer: {
     flex: 1,
@@ -104,9 +100,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   image: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
+    width: "83%",
+    height: "54%",
     position: "absolute", // so text won't be pushed underneath
   },
 });

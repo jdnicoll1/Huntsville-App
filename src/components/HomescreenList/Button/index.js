@@ -14,7 +14,7 @@ export default function Button(props) {
   return (
     <View style={styles.container}>
       <Pressable
-        onPress={() => navigation.navigate("Requests")}
+        onPress={() => navigation.navigate("Submit Request")}
         // denotes the action of when a button is pressed
         style={({ pressed }) => [
           {

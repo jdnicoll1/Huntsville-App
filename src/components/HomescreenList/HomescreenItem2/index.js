@@ -27,9 +27,18 @@ const HomescreenItem2 = (props) => {
         source={require("../../../assets/images/wazowski_background.jpg")}
         style={styles.image}
       /> */}
+      {/* <Video
+        rate={1}
+        shouldPlay
+        isLooping
+        muted={true}
+        source={require("../../../assets/videos/city_background_trim.mp4")}
+        style={styles.video}
+        resizeMode="cover"
+      /> */}
       <View style={styles.titles}>
         <Text>Screen 2</Text>
-        <Text>History of Huntsville maybe?</Text>
+        <Text>History of Huntsville?</Text>
       </View>
     </View>
   );

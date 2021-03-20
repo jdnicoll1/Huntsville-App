@@ -6,9 +6,10 @@ const styles = StyleSheet.create({
     padding: 25, // this will add 10px to either side making the button a little smaller than the parent container
   },
   button: {
-    // backgroundColor: "white",
+    backgroundColor: "#05375a",
     height: 40,
     borderRadius: 20, // rounds the corner of the button
+    borderColor: "#fff",
     justifyContent: "center", // align vertically
     alignItems: "center", // will align horizontally
     borderWidth: 1.5,
@@ -16,6 +17,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 12,
     fontWeight: "500",
+    color: "#fff",
   },
 });
 

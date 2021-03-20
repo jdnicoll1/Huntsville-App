@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text, ImageBackground, Video } from "react-native";
 import Button from "../Button";
 import styles from "./styles"; // "./" denotes this directory
 import Footer from "../Footer";
@@ -27,10 +27,19 @@ const HomescreenItem = (props) => {
         source={require("../../../assets/images/wazowski_background.jpg")}
         style={styles.image}
       /> */}
+      {/* <Video
+        rate={1}
+        shouldPlay
+        isLooping
+        muted={true}
+        source={require("../../../assets/videos/city_background_trim.mp4")}
+        style={styles.video}
+        resizeMode="cover"
+      /> */}
       <View style={styles.titles}>
         <Text style={styles.titleText}> Welcome to Huntsville!</Text>
       </View>
-      <Button {...props} />
+      {/* <Button {...props} /> */}
       <Footer />
     </View>
   );
