@@ -40,105 +40,24 @@ var datetime =
   currentdate.getDate() +
   "/" +
   currentdate.getFullYear();
-/*
-function getAnnouncements() {
-    const [loading, setLoading] = useState(true); // Set loading to true on component mount
-    const [announcements, setAnnouncements] = useState([]); // Initial empty array of users
-
-    useEffect(() => {
-        const event = firestore()
-            .collection('announcements')
-            .onSnapshot(() => {
-                useEffect(() => {
-                    const subscriber = firestore()
-                        .collection('announcements')
-                        .onSnapshot(querySnapshot => {
-                            const announcements = [];
-
-                            querySnapshot.forEach(documentSnapshot => {
-                                users.push({
-                                    ...documentSnapshot.data(),
-                                    key: documentSnapshot.id,
-                                });
-                            });
-
-                            setAnnouncements(announcements);
-                            setLoading(false);
-                        });
-
-                    // Unsubscribe from events when no longer in use
-                    return () => event();
-                }, []);
-
-            });
-
-        // Unsubscribe from events when no longer in use
-        return () => event();
-    }, []);
-
-    if (loading) {
-        return <ActivityIndicator />;
-    }
-
-    if (loading) {
-        return <ActivityIndicator />;
-    }
-
-    return (
-        <FlatList
-            data={announcements}
-            renderItem={({ item }) => (
-                <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                    <Text>User ID: {item.id}</Text>
-                    <Text>User Name: {item.name}</Text>
-                </View>
-            )}
-        />
-    );
-}*/
 
 function getAnnouncements() {
     var announcementsArray = [];
-    /*
-    const db = firebase.firestore();
-    const announcementsRef = db.collection('announcements');
-    const snapshot = announcementsRef.where('active', '==', 'true').get();
-    */
-    //return firebase.firestore().collection('announcements').where('active', '==', 'true').get()
-    return firebase.firestore().collection('announcements').orderBy("active", "asc").get()
+    firebase.firestore().collection('announcements').orderBy("dateTime", "desc").get()
         .then((querySnapshot) => {
-            console.log("A");
             querySnapshot.forEach((doc) => {
-                console.log(dox.id, doc.data());
+                announcementsArray.push(doc.data());
+                console.log(doc.id, doc.data());
+                //console.log(announcementsArray[0]);
             });
         })
         .catch((error) => {
         console.log("Error getting documents: ", error);
 
         });
-    /*
-    const query = announcementsRef.where('active', '==', 'true').get().then(snapshot => {
-        console.log("A")
-        snapshot.docs.forEach(doc => {
-            console.log("B")
-            announcementsArray.push(doc.data().text());
-            console.log(dox.id, doc.data())
-        })
-    });*/
-    //return announcementsArray;
+    return announcementsArray
 } 
-// PASS INFO HERE
-const DATA = [...Array(1).keys()].map((_, i) => {
-    const announcementArray = getAnnouncements();
-    return {
-        key: faker.random.uuid(), // each item in a list needs a key - we will need to assign this later
-        announcementTitle: announcementArray[0],
-        announcementText:
-        "This is the announcement text portion, here announcements will be made about school cancellations, road closures, weather advisories, etc",
-        dateTime: datetime,
-    };
-});
-
+const DATA = getAnnouncements();
 const SPACING = 20;
 const AVATAR_SIZE = 70;
 // end fake data
@@ -160,7 +79,7 @@ export default function AnnouncementScreen(props) {
       <Header {...props} />
       <FlatList
         data={DATA}
-        keyExtractor={(item) => item.key}
+        keyExtractor={(item => item.dateTime.seconds)}
         contentContainerStyle={{
           padding: SPACING,
           paddingTop: "5%",
@@ -186,13 +105,13 @@ export default function AnnouncementScreen(props) {
             >
               <View>
                 <Text style={{ fontSize: 28, fontWeight: "700" }}>
-                  {item.announcementTitle}
+                  {item.title}
                 </Text>
                 <Text style={{ fontSize: 18, opacity: 0.7 }}>
-                  {item.announcementText}
+                  {item.text}
                 </Text>
                 <Text style={{ fontSize: 15, opacity: 0.8, color: "#0099cc" }}>
-                  {item.dateTime}
+                  {new Date(item.dateTime.seconds * 1000).toLocaleString()}
                 </Text>
               </View>
             </View>
