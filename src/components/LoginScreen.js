@@ -86,29 +86,22 @@ class LoginScreen extends Component {
     }
 
     return (
-      // <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View style={{ flex: 1 }}>
-        <View style={styles.container}>
-          {/* <Video
-        rate={1}
-        shouldPlay
-        isLooping
-        muted={true}
-        source={require("../assets/videos/city_background_trim.mp4")}
-        style={styles.video}
-        resizeMode="cover"
-      /> */}
-
-          {/* <ImageBackground // when background is decided
+      //
+      <View style={styles.container}>
+        {/* <ImageBackground // when background is decided
           source={require("../assets/images/home_background.jpg")}
           style={styles.image}
         /> */}
-          <StatusBar barStyle="light-content" />
-          <View style={styles.header}>
-            <Text style={styles.text_header}>Log In</Text>
-          </View>
 
-          <Animatable.View style={styles.footer} animation="fadeInUpBig">
+        <StatusBar barStyle="light-content" />
+        <View style={styles.header}>
+          <Text style={styles.text_header}>Log In</Text>
+        </View>
+        <Animatable.View style={styles.footer} animation="fadeInUpBig">
+          <TouchableWithoutFeedback
+            onPress={Keyboard.dismiss}
+            accessible={false}
+          >
             <Text style={styles.text_footer}>E-mail</Text>
             <View style={styles.action}>
               <FontAwesome // email icon and text field
@@ -144,41 +137,42 @@ class LoginScreen extends Component {
               />
               {/* <Feather name="eye-off" color="grey" size={20} /> */}
             </View>
-            <View style={styles.button}>
-              <TouchableOpacity
-                onPress={() => this.signInUser()}
-                style={[
-                  styles.signIn,
-                  {
-                    borderColor: "#05375a",
-                    borderWidth: 1,
-                    marginTop: 15,
-                    backgroundColor: "#05375a",
-                  },
-                ]}
-              >
-                <Text style={[styles.textSign, { color: "#fff" }]}>Log In</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Sign Up Screen")}
-                style={[
-                  styles.signIn,
-                  {
-                    borderColor: "#05375a",
-                    borderWidth: 1,
-                    marginTop: 15,
-                  },
-                ]}
-              >
-                <Text style={[styles.textSign, { color: "#05375a" }]}>
-                  Sign Up
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </Animatable.View>
-        </View>
+          </TouchableWithoutFeedback>
+          <View style={styles.button}>
+            <TouchableOpacity
+              onPress={() => this.signInUser()}
+              style={[
+                styles.signIn,
+                {
+                  borderColor: "#05375a",
+                  borderWidth: 1,
+                  marginTop: 15,
+                  backgroundColor: "#05375a",
+                },
+              ]}
+            >
+              <Text style={[styles.textSign, { color: "#fff" }]}>Log In</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("Sign Up Screen")}
+              style={[
+                styles.signIn,
+                {
+                  borderColor: "#05375a",
+                  borderWidth: 1,
+                  marginTop: 15,
+                },
+              ]}
+            >
+              <Text style={[styles.textSign, { color: "#05375a" }]}>
+                Sign Up
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </Animatable.View>
       </View>
-      // </TouchableWithoutFeedback>
+
+      //
     );
   }
 }
@@ -259,13 +253,6 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "cover",
     position: "absolute", // so text won't be pushed underneath
-  },
-  video: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
   },
 });
 
