@@ -26,6 +26,7 @@ import LoginScreen from "./components/LoginScreen";
 import SignUpScreen from "./components/SignUpScreen";
 import GettingStarted from "./components/GettingStarted";
 import ListingsScreen from "./components/ListingsScreen";
+import MakeAnnouncements from "./components/MakeAnnouncements";
 import RequestNavigator from "./navigation/RequestNavigator";
 
 import { StackRouter } from "react-navigation";
@@ -74,6 +75,7 @@ function MyDrawer() {
         component={AuthNavigator}
         options={{ unmountOnBlur: true }}
       />
+      <Drawer.Screen name="Make Announcement" component={MakeAnnouncements} />
     </Drawer.Navigator>
   );
 }

@@ -8,6 +8,7 @@ import {
   StatusBar,
   Image,
   ImageBackground,
+  SafeAreaView,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";

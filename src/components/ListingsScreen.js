@@ -36,7 +36,7 @@ function ListingsScreen({ navigation }) {
           paddingBottom: "3%",
         }}
       >
-        Request Submission
+        All Requests
       </Text>
       <FlatList
         data={listings}
