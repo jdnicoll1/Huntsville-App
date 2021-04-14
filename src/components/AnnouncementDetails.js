@@ -5,14 +5,15 @@ import colors from "./config/colors";
 import ListItem from "./lists/ListItem";
 import Text from "./Text";
 
-function ListingDetailsScreen({ route }) {
+function AnnouncementDetails({ route }) {
   const listing = route.params;
   return (
     <View>
-      <Image style={styles.image} source={listing.image} />
+      {/* <Image style={styles.image} source={listing.image} /> */}
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{listing.title}</Text>
-        <Text style={styles.description}>{listing.description}</Text>
+        <Text style={styles.title}>{listing.announcementTitle}</Text>
+        <Text style={styles.description}>{listing.announcementText}</Text>
+        <Text style={styles.description}>{listing.dateTime}</Text>
         <View style={styles.userContainer}></View>
       </View>
     </View>
@@ -47,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListingDetailsScreen;
+export default AnnouncementDetails;

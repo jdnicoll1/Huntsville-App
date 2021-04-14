@@ -7,6 +7,7 @@ const Stack = createStackNavigator();
 
 const RequestNavigator = () => {
   return (
+    // https://reactnative.dev/docs/modal - implement button to close modal screen
     <Stack.Navigator
       mode="modal"
       screenOptions={{

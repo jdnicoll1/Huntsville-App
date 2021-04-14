@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import ListingsScreen from "../components/ListingsScreen";
-import ListingDetailsScreen from "../components/ListingDetailsScreen";
+import AnnouncementScreen from "../components/AnnouncementScreen";
+import AnnouncementDetails from "../components/AnnouncementDetails";
 
 const Stack = createStackNavigator();
 
@@ -13,10 +13,10 @@ const AnnouncementNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="Listings" component={ListingsScreen} />
+      <Stack.Screen name="Announcements" component={AnnouncementScreen} />
       <Stack.Screen
-        name="ListingDetails"
-        component={ListingDetailsScreen}
+        name="AnnouncementDetails"
+        component={AnnouncementDetails}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
