@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ImageBackground, Video } from "react-native";
+import { View, Text, ImageBackground, Video, SafeAreaView } from "react-native";
 import Button from "../Button";
 import styles from "./styles"; // "./" denotes this directory
 import Footer from "../Footer";
@@ -22,7 +22,7 @@ const HomescreenItem = (props) => {
   }
 
   return (
-    <View style={styles.homeContainer}>
+    <SafeAreaView style={styles.homeContainer}>
       {/* <ImageBackground // when background is decided
         source={require("../../../assets/images/wazowski_background.jpg")}
         style={styles.image}
@@ -41,7 +41,7 @@ const HomescreenItem = (props) => {
       </View>
       {/* <Button {...props} /> */}
       <Footer />
-    </View>
+    </SafeAreaView>
   );
 };
 

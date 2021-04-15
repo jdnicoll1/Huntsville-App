@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text, ImageBackground, Image, Linking } from "react-native";
 import Button from "../Button";
 import styles from "./styles"; // "./" denotes this directory
 import Header from "../Header";
@@ -36,6 +36,10 @@ const HomescreenItem2 = (props) => {
         style={styles.video}
         resizeMode="cover"
       /> */}
+      <Image
+        style={styles.image}
+        source={require("../../../assets/images/samHouston.jpg")}
+      />
       <View style={styles.titles}>
         <Text>Screen 2</Text>
         <Text>History of Huntsville?</Text>

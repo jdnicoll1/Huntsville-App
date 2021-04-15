@@ -17,9 +17,10 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   image: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
+    marginLeft: "3%",
+    width: "40%",
+    height: "55%",
+    resizeMode: "contain",
     position: "absolute", // so text won't be pushed underneath
   },
   video: {

@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   StatusBar,
   Image,
+  Linking,
 } from "react-native";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -51,6 +52,16 @@ function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
+      <DrawerItem
+        label="Facebook"
+        onPress={() =>
+          Linking.openURL("https://www.facebook.com/HuntsvilleTX/")
+        }
+      />
+      <DrawerItem
+        label="Visit Our Website"
+        onPress={() => Linking.openURL("https://www.huntsvilletx.gov/")}
+      />
     </DrawerContentScrollView>
   );
 }
@@ -77,6 +88,8 @@ function MyDrawer() {
         options={{ unmountOnBlur: true }}
       />
       <Drawer.Screen name="Make Announcement" component={MakeAnnouncements} />
+      {/* <Drawer.Screen name="Go To Google" component={} onPress={() => Linking.openURL("http://google.com")}/> */}
+      {/* https://stackoverflow.com/questions/47351444/navigate-to-url-deep-link-with-drawernavigator-react-native */}
     </Drawer.Navigator>
   );
 }

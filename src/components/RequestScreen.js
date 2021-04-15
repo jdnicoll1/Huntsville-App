@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Keyboard,
   StyleSheet,
@@ -13,6 +13,7 @@ import CategoryPickerItem from "./CategoryPickerItem";
 import Screen from "./Screen";
 import FormImagePicker from "./forms/FormImagePicker";
 import Header from "./Header";
+import * as Location from "expo-location";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
