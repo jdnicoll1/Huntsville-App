@@ -37,6 +37,7 @@ class MakeAnnouncements extends React.Component {
               margin: 20,
               padding: 10,
               fontSize: 20,
+              borderRadius: 15,
             }}
           />
           <TextInput

@@ -17,7 +17,47 @@ import Header from "./Header";
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   description: Yup.string().label("Description"),
+  category: Yup.object().required().nullable().label("Category"),
 });
+
+const categories = [
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Water",
+    value: 1,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "road",
+    label: "Roads",
+    value: 2,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Garbage",
+    value: 3,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Debris Removal",
+    value: 4,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Maintenance",
+    value: 5,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Other",
+    value: 6,
+  },
+];
 
 function RequestScreen(props) {
   return (
@@ -40,7 +80,6 @@ function RequestScreen(props) {
           <Form
             initialValues={{
               title: "",
-              price: "",
               description: "",
               category: null,
               images: null,
@@ -59,6 +98,14 @@ function RequestScreen(props) {
               name="description"
               numberOfLines={3}
               placeholder="Provide a detailed description"
+            />
+            <Picker
+              items={categories}
+              name="category"
+              numberOfColumns={3}
+              PickerItemComponent={CategoryPickerItem}
+              placeholder="Category"
+              width="50%"
             />
             <FormImagePicker name="images" />
             <SubmitButton title="Submit Request" />
