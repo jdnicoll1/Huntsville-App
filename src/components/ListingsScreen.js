@@ -5,6 +5,7 @@ import Card from "./Card";
 import colors from "./config/colors";
 import Screen from "./Screen";
 import Header from "./Header";
+import { useNavigation } from "@react-navigation/native";
 
 const listings = [
   {
@@ -22,8 +23,9 @@ const listings = [
   },
 ];
 const SPACING = 20;
-function ListingsScreen({ navigation }) {
+function ListingsScreen(props) {
   StatusBar.setBarStyle("dark-content", true); // sets the time and carrier on iphone to black so it shows against the white background
+  const navigation = useNavigation();
 
   return (
     <Screen style={styles.screen}>
@@ -36,8 +38,9 @@ function ListingsScreen({ navigation }) {
           paddingBottom: "3%",
         }}
       >
-        Request Submission
+        Requests
       </Text>
+      <Header {...props} />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}

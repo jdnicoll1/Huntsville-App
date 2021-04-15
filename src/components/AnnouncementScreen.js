@@ -15,11 +15,11 @@ import {
   ActivityIndicator,
 } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
 const { width, height } = Dimensions.get("screen");
 import faker from "faker"; // just for list keys that we will need to assign later
 import firebase from "../database/firebaseDb";
-import 'firebase/firestore';
-
+import "firebase/firestore";
 
 // set the correct date to display
 var currentdate = new Date();
@@ -98,25 +98,28 @@ function getAnnouncements() {
 }*/
 
 function getAnnouncements() {
-    var announcementsArray = [];
-    /*
+  var announcementsArray = [];
+  /*
     const db = firebase.firestore();
     const announcementsRef = db.collection('announcements');
     const snapshot = announcementsRef.where('active', '==', 'true').get();
     */
-    //return firebase.firestore().collection('announcements').where('active', '==', 'true').get()
-    return firebase.firestore().collection('announcements').orderBy("active", "asc").get()
-        .then((querySnapshot) => {
-            console.log("A");
-            querySnapshot.forEach((doc) => {
-                console.log(dox.id, doc.data());
-            });
-        })
-        .catch((error) => {
-        console.log("Error getting documents: ", error);
-
-        });
-    /*
+  //return firebase.firestore().collection('announcements').where('active', '==', 'true').get()
+  return firebase
+    .firestore()
+    .collection("announcements")
+    .orderBy("active", "asc")
+    .get()
+    .then((querySnapshot) => {
+      console.log("A");
+      querySnapshot.forEach((doc) => {
+        console.log(dox.id, doc.data());
+      });
+    })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
+    });
+  /*
     const query = announcementsRef.where('active', '==', 'true').get().then(snapshot => {
         console.log("A")
         snapshot.docs.forEach(doc => {
@@ -125,18 +128,18 @@ function getAnnouncements() {
             console.log(dox.id, doc.data())
         })
     });*/
-    //return announcementsArray;
-} 
+  //return announcementsArray;
+}
 // PASS INFO HERE
 const DATA = [...Array(1).keys()].map((_, i) => {
-    const announcementArray = getAnnouncements();
-    return {
-        key: faker.random.uuid(), // each item in a list needs a key - we will need to assign this later
-        announcementTitle: announcementArray[0],
-        announcementText:
-        "This is the announcement text portion, here announcements will be made about school cancellations, road closures, weather advisories, etc",
-        dateTime: datetime,
-    };
+  const announcementArray = getAnnouncements();
+  return {
+    key: faker.random.uuid(), // each item in a list needs a key - we will need to assign this later
+    announcementTitle: announcementArray[0],
+    announcementText:
+      "This is the announcement text portion, here announcements will be made about school cancellations, road closures, weather advisories, etc",
+    dateTime: datetime,
+  };
 });
 
 const SPACING = 20;
@@ -145,6 +148,7 @@ const AVATAR_SIZE = 70;
 
 export default function AnnouncementScreen(props) {
   StatusBar.setBarStyle("dark-content", true); // sets the time and carrier on iphone to black so it shows against the white background
+  const navigation = useNavigation();
   return (
     <View style={{ flex: 1, backgroundColor: "#fff", paddingTop: "15%" }}>
       <Text
@@ -184,17 +188,23 @@ export default function AnnouncementScreen(props) {
                 shadowRadius: 10,
               }}
             >
-              <View>
-                <Text style={{ fontSize: 28, fontWeight: "700" }}>
-                  {item.announcementTitle}
-                </Text>
-                <Text style={{ fontSize: 18, opacity: 0.7 }}>
-                  {item.announcementText}
-                </Text>
-                <Text style={{ fontSize: 15, opacity: 0.8, color: "#0099cc" }}>
-                  {item.dateTime}
-                </Text>
-              </View>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("AnnouncementDetails", item)}
+              >
+                <View>
+                  <Text style={{ fontSize: 28, fontWeight: "700" }}>
+                    {item.announcementTitle}
+                  </Text>
+                  <Text style={{ fontSize: 18, opacity: 0.7 }}>
+                    {item.announcementText}
+                  </Text>
+                  <Text
+                    style={{ fontSize: 15, opacity: 0.8, color: "#0099cc" }}
+                  >
+                    {item.dateTime}
+                  </Text>
+                </View>
+              </TouchableOpacity>
             </View>
           );
         }}
