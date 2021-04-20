@@ -30,7 +30,7 @@ const categories = [
   },
   {
     backgroundColor: "#05375a",
-    icon: "road",
+    icon: "",
     label: "Roads",
     value: 2,
   },

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     width: "40%",
     height: "55%",
     resizeMode: "contain",
-    position: "absolute", // so text won't be pushed underneath
+    //position: "absolute", // so text won't be pushed underneath
   },
   video: {
     position: "absolute",
