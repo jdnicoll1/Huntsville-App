@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, Pressable, TouchableHighlight } from "react-native"; //highlight for darkening the button when pressed
+import { View, Text, Pressable, Linking } from "react-native"; //highlight for darkening the button when pressed
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 export default function Button(props) {
   // props passed in through Homescreen component, can change properties and use the same button component with this
@@ -14,7 +15,9 @@ export default function Button(props) {
   return (
     <View style={styles.container}>
       <Pressable
-        onPress={() => navigation.navigate("Submit Request")}
+        onPress={() =>
+          Linking.openURL("https://en.wikipedia.org/wiki/Huntsville,_Texas")
+        }
         // denotes the action of when a button is pressed
         style={({ pressed }) => [
           {
@@ -23,7 +26,8 @@ export default function Button(props) {
           styles.button,
         ]}
       >
-        <Text style={styles.text}>Submit A Request</Text>
+        <Text style={styles.text}>Learn More {">"}</Text>
+        {/* <MaterialIcons name="navigate-next" color="#fff" size={20} /> */}
       </Pressable>
     </View>
   );
