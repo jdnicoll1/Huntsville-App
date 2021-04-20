@@ -8,40 +8,47 @@ import Text from "./Text";
 function AnnouncementDetails({ route }) {
   const listing = route.params;
   return (
-    <View>
-      {/* <Image style={styles.image} source={listing.image} /> */}
+    <SafeAreaView style={{ backgroundColor: "#fff", alignItems: "center" }}>
+      <Image
+        style={styles.image}
+        source={require("../assets/images/city_logo.jpg")}
+      />
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{listing.announcementTitle}</Text>
         <Text style={styles.description}>{listing.announcementText}</Text>
-        <Text style={styles.description}>{listing.dateTime}</Text>
+        <Text style={styles.descriptionTime}>{listing.dateTime}</Text>
         <View style={styles.userContainer}></View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   detailsContainer: {
     padding: 20,
+    marginTop: "10%",
+    borderTopColor: "grey",
+    borderTopWidth: 3,
+    height: "100%",
   },
   image: {
-    width: "100%",
-    height: 300,
+    width: "60%",
+    height: 180,
   },
-  price: {
-    color: colors.secondary,
-    fontWeight: "bold",
-    fontSize: 20,
-    marginVertical: 10,
-  },
+
   title: {
     fontSize: 24,
     fontWeight: "500",
   },
   description: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "500",
     color: "grey",
+  },
+  descriptionTime: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#0099cc",
   },
   userContainer: {
     marginVertical: 40,

@@ -17,6 +17,13 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "#05375a",
   },
+  nameText: {
+    fontFamily: "Tangerine_700Bold",
+    fontSize: 48,
+    fontWeight: "500",
+    color: "#05375a",
+    marginLeft: "5%",
+  },
   image: {
     width: "100%",
     height: "100%",

@@ -36,6 +36,18 @@ const HomescreenItem = (props) => {
         style={styles.video}
         resizeMode="cover"
       /> */}
+      <View
+        style={{
+          position: "absolute",
+          width: "70%",
+          // height: "1%",
+          // borderWidth: 3,
+          marginTop: "30%",
+        }}
+      >
+        <Text style={styles.nameText}>Hi, Jacob</Text>
+      </View>
+
       <View style={styles.titles}>
         <Text style={styles.titleText}> Welcome to Huntsville!</Text>
       </View>
