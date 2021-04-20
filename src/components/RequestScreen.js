@@ -188,7 +188,8 @@ async function sendPushNotification(expoPushToken) {
     to: expoPushToken,
     sound: "default",
     title: "Request Submitted!",
-    body: "Based on our data, your request will be completed in about 15 min!",
+    body:
+      "Based on our data, your request will be completed in the next 4 days!",
     data: { someData: "goes here" },
   };
 
