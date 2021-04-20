@@ -28,12 +28,81 @@ Notifications.setNotificationHandler({
   }),
 });
 
+import firebase from "../database/firebaseDb";
+
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
 });
 
+class RequestScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.dbRef = firebase.firestore().collection("users");
+        this.state = {
+            overview: "",
+            details: "",
+            photos: "",
+            isLoading: false,
+        };
+    }
+    inputValueUpdate = (val, prop) => {
+        const state = this.state;
+        state[prop] = val;
+        this.setState(state);
+    };
+
+    submitRequest() {
+        alert('request submitted');
+    }
+
+    render() {
+        return (
+            <Screen style={styles.container}>
+                <Header {...this.props} />
+                <Text
+                    style={{
+                        textAlign: "center",
+                        fontSize: 25,
+                        opacity: 0.8,
+                        paddingBottom: "3%",
+                        paddingTop: "1.7%",
+                    }}
+                >
+                    Request Submission
+      </Text>
+
+                <Form
+                    initialValues={{
+                        title: "",
+                        price: "",
+                        description: "",
+                        category: null,
+                        images: null,
+                    }}
+                    onSubmit={(values) => console.log(values)}
+                    validationSchema={validationSchema}
+                >
+                    <FormField
+                        maxLength={255}
+                        name="title"
+                        placeholder="Give us an overview of your concern"
+                    />
+                    <FormField
+                        maxLength={255}
+                        multiline
+                        name="description"
+                        numberOfLines={3}
+                        placeholder="Provide a detailed description"
+                    />
+                    <FormImagePicker name="images" />
+                    <SubmitButton title="Submit Request" />
+                </Form>
+            </Screen>
+        );
+    }
+}
 const categories = [
   {
     backgroundColor: "#05375a",
@@ -72,6 +141,7 @@ const categories = [
     value: 6,
   },
 ];
+
 
 import Button from "./Button";
 

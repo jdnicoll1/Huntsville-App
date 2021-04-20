@@ -7,6 +7,8 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
+import firebase from "../database/firebaseDb";
+import "firebase/firestore";
 
 class MakeAnnouncements extends React.Component {
   constructor() {
@@ -19,6 +21,14 @@ class MakeAnnouncements extends React.Component {
 
   submit() {
     // will send data off to firestore here (this.state has two items - title of announcement and content of announcement)
+      const now = new Date()
+      const utcMilllisecondsSinceEpoch = now.getTime()
+      const utcSecondsSinceEpoch = Math.round(utcMilllisecondsSinceEpoch / 1000) 
+      firebase.firestore().collection("announcements").add({
+          title: this.state.title,
+          text: this.state.content,
+          dateTime: utcSecondsSinceEpoch
+      })
     console.warn(this.state);
   }
 
