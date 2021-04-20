@@ -26,7 +26,9 @@ import LoginScreen from "./components/LoginScreen";
 import SignUpScreen from "./components/SignUpScreen";
 import GettingStarted from "./components/GettingStarted";
 import ListingsScreen from "./components/ListingsScreen";
+import MakeAnnouncements from "./components/MakeAnnouncements";
 import RequestNavigator from "./navigation/RequestNavigator";
+import AnnouncementNavigator from "./navigation/AnnouncementNavigator";
 
 import { StackRouter } from "react-navigation";
 import AuthNavigator from "./navigation/AuthNavigator";
@@ -66,7 +68,7 @@ function MyDrawer() {
         options={{ unmountOnBlur: true }} // unmount on blur resets the stack so it goes to getting started every time
       />
       <Drawer.Screen name="Home" component={Homescreen} />
-      <Drawer.Screen name="Announcements" component={AnnouncementScreen} />
+      <Drawer.Screen name="Announcements" component={AnnouncementNavigator} />
       <Drawer.Screen name="Submit Request" component={RequestScreen} />
       <Drawer.Screen name="All Requests" component={RequestNavigator} />
       <Drawer.Screen
@@ -74,6 +76,7 @@ function MyDrawer() {
         component={AuthNavigator}
         options={{ unmountOnBlur: true }}
       />
+      <Drawer.Screen name="Make Announcement" component={MakeAnnouncements} />
     </Drawer.Navigator>
   );
 }

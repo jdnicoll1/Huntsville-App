@@ -15,11 +15,11 @@ import {
   ActivityIndicator,
 } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
 const { width, height } = Dimensions.get("screen");
 import faker from "faker"; // just for list keys that we will need to assign later
 import firebase from "../database/firebaseDb";
-import 'firebase/firestore';
-
+import "firebase/firestore";
 
 // set the correct date to display
 var currentdate = new Date();
@@ -64,6 +64,7 @@ const AVATAR_SIZE = 70;
 
 export default function AnnouncementScreen(props) {
   StatusBar.setBarStyle("dark-content", true); // sets the time and carrier on iphone to black so it shows against the white background
+  const navigation = useNavigation();
   return (
     <View style={{ flex: 1, backgroundColor: "#fff", paddingTop: "15%" }}>
       <Text
@@ -103,17 +104,23 @@ export default function AnnouncementScreen(props) {
                 shadowRadius: 10,
               }}
             >
-              <View>
-                <Text style={{ fontSize: 28, fontWeight: "700" }}>
-                  {item.title}
-                </Text>
-                <Text style={{ fontSize: 18, opacity: 0.7 }}>
-                  {item.text}
-                </Text>
-                <Text style={{ fontSize: 15, opacity: 0.8, color: "#0099cc" }}>
-                  {new Date(item.dateTime.seconds * 1000).toLocaleString()}
-                </Text>
-              </View>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("AnnouncementDetails", item)}
+              >
+                <View>
+                  <Text style={{ fontSize: 28, fontWeight: "700" }}>
+                    {item.announcementTitle}
+                  </Text>
+                  <Text style={{ fontSize: 18, opacity: 0.7 }}>
+                    {item.announcementText}
+                  </Text>
+                  <Text
+                    style={{ fontSize: 15, opacity: 0.8, color: "#0099cc" }}
+                  >
+                    {item.dateTime}
+                  </Text>
+                </View>
+              </TouchableOpacity>
             </View>
           );
         }}

@@ -10,6 +10,8 @@ import {
   StatusBar,
   Image,
   ActivityIndicator,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 
 // next two imports for email and password icons
@@ -105,60 +107,69 @@ class SignUpScreen extends Component {
         </View>
 
         <Animatable.View style={styles.footer} animation="fadeInUpBig">
-          <Text style={styles.text_footer}>E-mail</Text>
-          <View style={styles.action}>
-            <FontAwesome // email icon and text field
-              name="user-o"
-              color="#05375a"
-              size={20}
-            />
-            <TextInput
-              placeholder="E-mail"
-              style={styles.textInput}
-              value={this.state.email}
-              onChangeText={(val) => this.inputValueUpdate(val, "email")}
-              autoCapitalize="none"
-            />
-            {/* <Feather name="check-circle" color="green" size={20} /> */}
-          </View>
-          <Text style={[styles.text_footer, { marginTop: 35 }]}>Password</Text>
-          <View style={styles.action}>
-            <FontAwesome // email icon and text field
-              name="lock"
-              color="#05375a"
-              size={20}
-            />
-            <TextInput
-              placeholder="Password"
-              secureTextEntry={true}
-              style={styles.textInput}
-              value={this.state.password}
-              onChangeText={(val) => this.inputValueUpdate(val, "password")}
-              autoCapitalize="none"
-            />
-            {/* <Feather name="eye-off" color="grey" size={20} /> */}
-          </View>
-          <Text style={[styles.text_footer, { marginTop: 35 }]}>
-            Confirm Password
-          </Text>
-          <View style={styles.action}>
-            <FontAwesome // email icon and text field
-              name="lock"
-              color="#05375a"
-              size={20}
-            />
-            <TextInput
-              placeholder="Confirm Password"
-              secureTextEntry={true}
-              style={styles.textInput}
-              value={this.state.confirmpassword}
-              onChangeText={(val) =>
-                this.inputValueUpdate(val, "confirmpassword")
-              }
-              autoCapitalize="none"
-            />
-            {/* <Feather name="eye-off" color="grey" size={20} /> */}
-          </View>
+          <TouchableWithoutFeedback
+            onPress={Keyboard.dismiss}
+            accessible={false}
+          >
+            <View>
+              <Text style={styles.text_footer}>E-mail</Text>
+              <View style={styles.action}>
+                <FontAwesome // email icon and text field
+                  name="user-o"
+                  color="#05375a"
+                  size={20}
+                />
+                <TextInput
+                  placeholder="E-mail"
+                  style={styles.textInput}
+                  value={this.state.email}
+                  onChangeText={(val) => this.inputValueUpdate(val, "email")}
+                  autoCapitalize="none"
+                />
+                {/* <Feather name="check-circle" color="green" size={20} /> */}
+              </View>
+              <Text style={[styles.text_footer, { marginTop: 35 }]}>
+                Password
+              </Text>
+              <View style={styles.action}>
+                <FontAwesome // email icon and text field
+                  name="lock"
+                  color="#05375a"
+                  size={20}
+                />
+                <TextInput
+                  placeholder="Password"
+                  secureTextEntry={true}
+                  style={styles.textInput}
+                  value={this.state.password}
+                  onChangeText={(val) => this.inputValueUpdate(val, "password")}
+                  autoCapitalize="none"
+                />
+                {/* <Feather name="eye-off" color="grey" size={20} /> */}
+              </View>
+              <Text style={[styles.text_footer, { marginTop: 35 }]}>
+                Confirm Password
+              </Text>
+              <View style={styles.action}>
+                <FontAwesome // email icon and text field
+                  name="lock"
+                  color="#05375a"
+                  size={20}
+                />
+                <TextInput
+                  placeholder="Confirm Password"
+                  secureTextEntry={true}
+                  style={styles.textInput}
+                  value={this.state.confirmpassword}
+                  onChangeText={(val) =>
+                    this.inputValueUpdate(val, "confirmpassword")
+                  }
+                  autoCapitalize="none"
+                />
+                {/* <Feather name="eye-off" color="grey" size={20} /> */}
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
           <View style={styles.button}>
             <TouchableOpacity
               onPress={() => this.storeUser()}

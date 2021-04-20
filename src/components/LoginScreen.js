@@ -10,6 +10,7 @@ import {
   StatusBar,
   Dimensions,
   ActivityIndicator,
+  Keyboard,
 } from "react-native";
 // next two imports for email and password icons
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -85,60 +86,58 @@ class LoginScreen extends Component {
     }
 
     return (
+      //
       <View style={styles.container}>
-        {/* <Video
-        rate={1}
-        shouldPlay
-        isLooping
-        muted={true}
-        source={require("../assets/videos/city_background_trim.mp4")}
-        style={styles.video}
-        resizeMode="cover"
-      /> */}
-
         {/* <ImageBackground // when background is decided
           source={require("../assets/images/home_background.jpg")}
           style={styles.image}
         /> */}
+
         <StatusBar barStyle="light-content" />
         <View style={styles.header}>
           <Text style={styles.text_header}>Log In</Text>
         </View>
-
         <Animatable.View style={styles.footer} animation="fadeInUpBig">
-          <Text style={styles.text_footer}>E-mail</Text>
-          <View style={styles.action}>
-            <FontAwesome // email icon and text field
-              name="user-o"
-              color="#05375a"
-              size={20}
-            />
-            <TextInput
-              placeholder="E-mail"
-              style={styles.textInput}
-              value={this.state.email}
-              onChangeText={(val) => this.inputValueUpdate(val, "email")}
-              autoCapitalize="none"
-            />
-            {/* <Feather name="check-circle" color="green" size={20} /> */}
-          </View>
-          <Text style={[styles.text_footer, { marginTop: 35 }]}>Password</Text>
-          <View style={styles.action}>
-            <FontAwesome // email icon and text field
-              name="lock"
-              color="#05375a"
-              size={20}
-            />
-            <TextInput
-              placeholder="Password"
-              secureTextEntry={true}
-              style={styles.textInput}
-              value={this.state.password}
-              onChangeText={(val) => this.inputValueUpdate(val, "password")}
-              autoCapitalize="none"
-            />
-            {/* <Feather name="eye-off" color="grey" size={20} /> */}
-          </View>
+          <TouchableWithoutFeedback
+            onPress={Keyboard.dismiss}
+            accessible={false}
+          >
+            <Text style={styles.text_footer}>E-mail</Text>
+            <View style={styles.action}>
+              <FontAwesome // email icon and text field
+                name="user-o"
+                color="#05375a"
+                size={20}
+              />
+              <TextInput
+                placeholder="E-mail"
+                style={styles.textInput}
+                value={this.state.email}
+                onChangeText={(val) => this.inputValueUpdate(val, "email")}
+                autoCapitalize="none"
+              />
+              {/* <Feather name="check-circle" color="green" size={20} /> */}
+            </View>
+            <Text style={[styles.text_footer, { marginTop: 35 }]}>
+              Password
+            </Text>
+            <View style={styles.action}>
+              <FontAwesome // email icon and text field
+                name="lock"
+                color="#05375a"
+                size={20}
+              />
+              <TextInput
+                placeholder="Password"
+                secureTextEntry={true}
+                style={styles.textInput}
+                value={this.state.password}
+                onChangeText={(val) => this.inputValueUpdate(val, "password")}
+                autoCapitalize="none"
+              />
+              {/* <Feather name="eye-off" color="grey" size={20} /> */}
+            </View>
+          </TouchableWithoutFeedback>
           <View style={styles.button}>
             <TouchableOpacity
               onPress={() => this.signInUser()}
@@ -172,11 +171,14 @@ class LoginScreen extends Component {
           </View>
         </Animatable.View>
       </View>
+
+      //
     );
   }
 }
 
 import { StyleSheet } from "react-native";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
@@ -251,13 +253,6 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "cover",
     position: "absolute", // so text won't be pushed underneath
-  },
-  video: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
   },
 });
 

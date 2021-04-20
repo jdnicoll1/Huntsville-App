@@ -1,5 +1,11 @@
-import React, { Component } from "react";
-import { StyleSheet, Text } from "react-native";
+import React from "react";
+import {
+  Keyboard,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import * as Yup from "yup";
 
 import { Form, FormField, FormPicker as Picker, SubmitButton } from "./forms";
@@ -13,9 +19,10 @@ import firebase from "../database/firebaseDb";
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   description: Yup.string().label("Description"),
+  category: Yup.object().required().nullable().label("Category"),
 });
 
-class RequestScreen extends React.Component{
+class RequestScreen extends React.Component {
     constructor(props) {
         super(props);
         this.dbRef = firebase.firestore().collection("users");
@@ -33,9 +40,9 @@ class RequestScreen extends React.Component{
     };
 
     submitRequest() {
-        alert('request submitted');      
+        alert('request submitted');
     }
-    
+
     render() {
         return (
             <Screen style={styles.container}>
@@ -81,6 +88,45 @@ class RequestScreen extends React.Component{
             </Screen>
         );
     }
+}
+const categories = [
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Water",
+    value: 1,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "road",
+    label: "Roads",
+    value: 2,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Garbage",
+    value: 3,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Debris Removal",
+    value: 4,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Maintenance",
+    value: 5,
+  },
+  {
+    backgroundColor: "#05375a",
+    icon: "",
+    label: "Other",
+    value: 6,
+  },
+];
 }
 
 const styles = StyleSheet.create({
