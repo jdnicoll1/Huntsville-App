@@ -109,15 +109,15 @@ export default function AnnouncementScreen(props) {
               >
                 <View>
                   <Text style={{ fontSize: 28, fontWeight: "700" }}>
-                    {item.announcementTitle}
+                    {item.title}
                   </Text>
                   <Text style={{ fontSize: 18, opacity: 0.7 }}>
-                    {item.announcementText}
+                    {item.text}
                   </Text>
                   <Text
                     style={{ fontSize: 15, opacity: 0.8, color: "#0099cc" }}
                   >
-                    {item.dateTime}
+                    {new Date(item.dateTime * 1000).toString()}
                   </Text>
                 </View>
               </TouchableOpacity>

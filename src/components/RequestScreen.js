@@ -127,7 +127,7 @@ const categories = [
     value: 6,
   },
 ];
-}
+
 
 const styles = StyleSheet.create({
   container: {
