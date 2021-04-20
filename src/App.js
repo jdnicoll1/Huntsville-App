@@ -40,7 +40,24 @@ import * as Permissions from "expo-permissions";
 import Button from "./components/Button";
 import ImageInput from "./components/ImageInput";
 
+import * as Notifications from "expo-notifications";
+import expoPushTokensApi from "./api/expoPushTokens";
+
 export default function App() {
+  useEffect(() => {
+    registerForPushNotifications();
+  }, []);
+  const registerForPushNotifications = async () => {
+    try {
+      const permission = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+      if (!permission.granted) return;
+
+      const token = await Notifications.getExpoPushTokenAsync();
+      expoPushTokensApi.register(token);
+    } catch (error) {
+      console.log("Error getting push token", error);
+    }
+  };
   return (
     <NavigationContainer>
       <MyDrawer />
