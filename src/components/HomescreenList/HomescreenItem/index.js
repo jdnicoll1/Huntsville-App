@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ImageBackground, Video } from "react-native";
+import { View, Text, ImageBackground, Video, SafeAreaView } from "react-native";
 import Button from "../Button";
 import styles from "./styles"; // "./" denotes this directory
 import Footer from "../Footer";
@@ -22,7 +22,7 @@ const HomescreenItem = (props) => {
   }
 
   return (
-    <View style={styles.homeContainer}>
+    <SafeAreaView style={styles.homeContainer}>
       {/* <ImageBackground // when background is decided
         source={require("../../../assets/images/wazowski_background.jpg")}
         style={styles.image}
@@ -36,12 +36,24 @@ const HomescreenItem = (props) => {
         style={styles.video}
         resizeMode="cover"
       /> */}
+      <View
+        style={{
+          position: "absolute",
+          width: "70%",
+          // height: "1%",
+          // borderWidth: 3,
+          marginTop: "30%",
+        }}
+      >
+        <Text style={styles.nameText}>Hi, Jacob</Text>
+      </View>
+
       <View style={styles.titles}>
         <Text style={styles.titleText}> Welcome to Huntsville!</Text>
       </View>
       {/* <Button {...props} /> */}
       <Footer />
-    </View>
+    </SafeAreaView>
   );
 };
 

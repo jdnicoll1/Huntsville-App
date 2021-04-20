@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   StatusBar,
   Image,
+  Linking,
 } from "react-native";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -34,12 +35,28 @@ import { StackRouter } from "react-navigation";
 import AuthNavigator from "./navigation/AuthNavigator";
 
 import Screen from "./components/Screen";
-import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import Button from "./components/Button";
 import ImageInput from "./components/ImageInput";
 
+import * as Notifications from "expo-notifications";
+import expoPushTokensApi from "./api/expoPushTokens";
+
 export default function App() {
+  // useEffect(() => {
+  //   registerForPushNotifications();
+  // }, []);
+  // const registerForPushNotifications = async () => {
+  //   try {
+  //     const permission = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+  //     if (!permission.granted) return;
+
+  //     const token = await Notifications.getExpoPushTokenAsync();
+  //     expoPushTokensApi.register(token);
+  //   } catch (error) {
+  //     console.log("Error getting push token", error);
+  //   }
+  // };
   return (
     <NavigationContainer>
       <MyDrawer />
@@ -51,6 +68,16 @@ function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
+      <DrawerItem
+        label="Facebook"
+        onPress={() =>
+          Linking.openURL("https://www.facebook.com/HuntsvilleTX/")
+        }
+      />
+      <DrawerItem
+        label="Visit Our Website"
+        onPress={() => Linking.openURL("https://www.huntsvilletx.gov/")}
+      />
     </DrawerContentScrollView>
   );
 }
@@ -77,6 +104,8 @@ function MyDrawer() {
         options={{ unmountOnBlur: true }}
       />
       <Drawer.Screen name="Make Announcement" component={MakeAnnouncements} />
+      {/* <Drawer.Screen name="Go To Google" component={} onPress={() => Linking.openURL("http://google.com")}/> */}
+      {/* https://stackoverflow.com/questions/47351444/navigate-to-url-deep-link-with-drawernavigator-react-native */}
     </Drawer.Navigator>
   );
 }
